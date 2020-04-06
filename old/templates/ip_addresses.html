@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Порты коммутатора {{ ip_address }} </title>
+    </head>
+    <body>
+        <table border="1">
+            <caption>
+            <b>Таблица портов</b>
+            </caption>
+       
+             <td><b>IP адрес</b> {{ ip_address }}</td>
+             <td><b>Коммутатор</b> {{ name }}</td>
+             </table>
+
+             <p></p>
+
+        <table border="1">
+            <th>Номера портов</th>
+            <th>Тип порта</th>
+            <th>Описание порта</th>
+
+            {% for post in ports %}
+            <tr>            
+             <td><a href="/device/{{ ip_address }}/{{ post }}"> {{ post }}</a></td>
+             <td>{{post.type}}</td>
+             <td>{{post.description}}</td>
+            </tr>   
+            {% endfor%}  
+        </table>
+       
+
+    </body>
+</html>

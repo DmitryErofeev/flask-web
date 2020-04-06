@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<html>
+    <head>
+        {% block title %}
+        Коммутаторы в {{ region_name }}
+        {% endblock %}
+
+    </head>
+
+
+    {% block content %}
+    <body>
+        <table border="1">
+            
+            <p>В {{ region_name }}: {{ data|length }} штук</p>
+
+            <tr>
+             <th>IP адрес</th>
+             <th>Модель коммутатора</th>
+             <th>Местонахождение коммутатора</th>
+             <th>Вендор</th>
+             <th>Роль</th>
+            </tr>            
+        {% for post in data %}
+        <tr>
+            <td><a href="/device/{{ post.ip }}">{{ post.ip }}</a></td>
+            <td>{{ post.model }}</td>
+            <td>{{ post.site }}</td>
+            <td>{{ post.vendor }}</td>
+            <td>{{ post.role }}</td>
+        </tr>
+        {% endfor%}
+        </table>
+    {% endblock %}
+    
+
+    
+
+  
+      
+    </body>
+</html>
+
+
+
+        

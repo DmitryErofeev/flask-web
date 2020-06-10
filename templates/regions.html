@@ -2,25 +2,27 @@
 <html>
     <head>
         {% block title %}
-        Коммутаторы в {{ region_name }}
+
+        Коммутаторы в {{ region.name }}
+
         {% endblock %}
 
     </head>
-
+z
 
     {% block content %}
     <body>
         <table border="1">
-            
-            <p>В {{ region_name }}: {{ data|length }} штук</p>
 
+            <p>В {{ region.name }}: {{ data|length }} штук</p>
+            <p><a href="{{ url_for('model_count', region=region.slug) }}">Количество в штуках</a></p>
             <tr>
              <th>IP адрес</th>
              <th>Модель коммутатора</th>
              <th>Местонахождение коммутатора</th>
              <th>Вендор</th>
              <th>Роль</th>
-            </tr>            
+            </tr>
         {% for post in data %}
         <tr>
             <td><a href="/device/{{ post.ip }}">{{ post.ip }}</a></td>
@@ -32,15 +34,15 @@
         {% endfor%}
         </table>
     {% endblock %}
-    
 
-    
 
-  
-      
+
+
+
+
     </body>
 </html>
 
 
 
-        
+

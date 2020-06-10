@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+<html>
+    <head>
+        {% block title %}
+
+       {% endblock %}
+
+    </head> -->
+
+    {% block content_title %}
+
+    {% endblock %}
+
+
+    {% block content %}
+    <body>
+    <table border="1">
+
+<p>Всего : {{ count }} штук</p>
+
+         <tr>
+         <th>Модель коммутатора</th>
+         <th>Количество</th>
+        </tr>
+
+        {% for model, model_count in data|dictsort(false, 'value')  %}
+        <tr>
+            <td>{{ model }}</td>
+            <td>{{ model_count }}</td>
+
+
+        </tr>
+        {% endfor%}
+        </table>
+
+    {% endblock %}
+
+
+
+
+    </body>
+</html>
